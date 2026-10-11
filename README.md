@@ -1,59 +1,26 @@
-# IocAngularJugadorsFutbolSamuelSerra
+# Nom de l'aplicació
+Jugadors de futbol
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.2.2.
+## Autor/a
+Samuel Serra
 
-## Development server
+## Descripció
+Aplicació web amb Angular 22 per a la cerca de jugadors amb les seves dades esportives.
 
-To start a local development server, run:
+## Versions utilitzades
+- Node.js: v24.15.0
+- npm: 11.12.1
+- Angular CLI: 22.x
+- Git: 2.x
 
-```bash
-ng serve
-```
+## Com crear i executar el projecte
+Amb la comanda
+ng new ioc-angular-jugadors-futbol-samuel-serra --routing --style=scss --ssr=false --standalone=true --file-name-style-guide=2016 --skip-git=true --package-manager=npm
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Per instal·lar i arrencar el projecte primer executar npm install, després executar ng serve, i per últim, obrir al navegador http://localhost:4200
 
-## Code scaffolding
+## Estat de l'EAC1
+Primer contacte i projecte base de la cerca de jugadors de futbol, creat amb branques i pujades a Github en public amb una interfícies personalitzada (bàscica de moment).
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Enllaç del repositori
+https://github.com/Samuelto15/ioc-angular-jugadors-futbol-samuel-serra
