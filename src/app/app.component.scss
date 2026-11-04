@@ -1,0 +1,37 @@
+.contenidor {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+h1 {
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.subtitol {
+  color: #6b7280;
+  margin-bottom: 2rem;
+}
+
+.llista-elements {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.contenidor {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .contenidor {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}

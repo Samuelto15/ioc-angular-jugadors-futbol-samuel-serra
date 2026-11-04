@@ -1,0 +1,33 @@
+<form class="filtre-form" #filtreForm="ngForm" (ngSubmit)="aplicarFiltres()">
+  <div class="camp">
+    <label for="cerca">Cerca per nom o descripció</label>
+    <input 
+      id="cerca" 
+      type="text" 
+      [(ngModel)]="textCerca" 
+      name="cerca" 
+      #cercaInput="ngModel"
+      minlength="4"
+      placeholder="Escriu per cercar..." 
+    />
+    @if (cercaInput.invalid && (cercaInput.dirty || cercaInput.touched)) {
+      <p class="error" role="alert">El text de cerca ha de tenir com a mínim 4 caràcters.</p>
+    }
+  </div>
+
+  <div class="camp">
+    <label for="posicio">Posició</label>
+    <select id="posicio" [(ngModel)]="posicioSeleccionada" name="posicio">
+      <option value="">Totes les posicions</option>
+      <option value="Davanter">Davanter</option>
+      <option value="Migcampista">Migcampista</option>
+      <option value="Defensa">Defensa</option>
+      <option value="Porter">Porter</option>
+    </select>
+  </div>
+
+  <div class="botons">
+    <button type="submit" class="btn-primari" [disabled]="filtreForm.invalid">Aplicar filtres</button>
+    <button type="button" class="btn-secundari" (click)="reiniciarFiltres()">Reiniciar filtres</button>
+  </div>
+</form>

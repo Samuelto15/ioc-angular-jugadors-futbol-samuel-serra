@@ -1,1 +1,22 @@
-/* You can add global styles to this file, and also import other style files */
+.skip-link {
+  position: absolute;
+  top: -50px;
+  left: 10px;
+  background: #1976d2;
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 0 0 4px 4px;
+  z-index: 1000;
+  transition: top 0.2s ease;
+
+  &:focus {
+    top: 0;
+  }
+}
+
+*:focus-visible {
+  outline: 3px solid #1976d2;
+  outline-offset: 2px;
+}
