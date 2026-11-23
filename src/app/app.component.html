@@ -11,28 +11,23 @@
 
     <section class="resultats">
       <h2>
-        Jugadors 
+        Jugadors
         <span class="comptador" aria-live="polite">{{ jugadorsFiltrats.length }} de {{ jugadors.length }}</span>
       </h2>
 
-      <div class="llista-elements">
-        @for (jugador of jugadorsFiltrats; track jugador.id) {
-          <app-targeta-jugador 
-            [jugador]="jugador" 
-            (click)="seleccionarJugador(jugador)">
-          </app-targeta-jugador>
-        } @empty {
-          <p class="no-results" role="status">No s'han trobat jugadors amb aquests filtres.</p>
-        }
-      </div>
+      <app-llista-jugadors
+        [jugadors]="jugadorsFiltrats"
+        (seleccionar)="seleccionarJugador($event)">
+      </app-llista-jugadors>
     </section>
 
     <aside class="detall" aria-live="polite">
       <h3>Detall del jugador</h3>
       @if (jugadorSeleccionat) {
         <div class="info-detall">
-          <h4>{{ jugadorSeleccionat.nom }}</h4>
+          <h4>{{ jugadorSeleccionat.nom }} (#{{ jugadorSeleccionat.dorsal }})</h4>
           <p><strong>Posició:</strong> {{ jugadorSeleccionat.posicio }}</p>
+          <p><strong>Data de debut:</strong> {{ jugadorSeleccionat.dataDebut | date:'dd/MM/yyyy' }}</p>
           <p><strong>Descripció:</strong> {{ jugadorSeleccionat.descripcio }}</p>
         </div>
       } @else {

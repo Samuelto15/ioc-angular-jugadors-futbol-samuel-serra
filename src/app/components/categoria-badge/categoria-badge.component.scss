@@ -1,0 +1,13 @@
+.badge {
+  padding: 0.25rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #fff;
+  display: inline-block;
+
+  &.porter { background-color: #e67e22; }
+  &.defensa { background-color: #2980b9; }
+  &.migcampista { background-color: #27ae60; }
+  &.davanter { background-color: #c0392b; }
+}

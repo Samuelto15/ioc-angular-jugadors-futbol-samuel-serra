@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-categoria-badge',
+  standalone: true,
   imports: [],
   templateUrl: './categoria-badge.component.html',
   styleUrl: './categoria-badge.component.scss'

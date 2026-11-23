@@ -1,21 +1,37 @@
-# Projecte Catàleg de Jugadors
+# Catàleg de Jugadors de Futbol - IOC
 
-Aolicació web amb Anglular per buscar i veure la informació dels jugadors de fútbol.
+Aplicació web desenvolupada amb Angular per buscar, filtrar i consultar la informació de jugadors de futbol.
 
-## Components del projecte
-- **TargetaJugadorComponent**: La targeta que mostra la informació de cada jugador.
-- **FiltreJugadorsComponent**: El buscador per filtrar per nom i posició.
-- **AppComponent**: La pantalla principal que organitza la llista i mostra el detall dels jugadors.
+## Versions i entorn
+- **Angular CLI:** 22.2.2
+- **Node.js:** 22.x (LTS)
+- **TypeScript:** 5.8.x
+- **Branca de treball actual:** `ra2-components`
 
+## Components creats
+- **AppComponent:** Component arrel que coordina l'estat general, el filtratge i el panell de detall.
+- **LlistaJugadorsComponent:** Renderitza la col·lecció de jugadors mitjançant `@for` amb `track` i `@empty`.
+- **TargetaJugadorComponent:** Mostra la fitxa resumida de cada jugador amb `@Input`, `@Output` i el pipe `date`.
+- **CategoriaBadgeComponent:** Subcomponent que mostra la posició del jugador amb un distintiu de color.
+- **FiltreJugadorsComponent:** Formulari reactiu per plantilla (`FormsModule`) amb validacions `required` i `minlength`.
 
-## Accessibilitat i disseny
-- Navegació fàcil amb el tabulador, tecla Tab (focus visible i enllaç de salt).
-- Textos adaptats per a lectors de pantalla (ARIA).
-- Disseny adaptat per a mòbils i ordinadors amb @media query
+## Accessibilitat i disseny responsive
+- Enllaç de salt al contingut principal (`skip-link`).
+- Contorn de focus visible (`:focus-visible`) per a navegació per teclat.
+- Etiquetes `<label for="...">` associades a tots els camps i atributs ARIA (`aria-live`, `role="alert"`, `role="status"`).
+- Maquetació adaptativa amb CSS Grid i `@media (max-width: 768px)`.
 
-## Com s'executa
-- **Branca de Git**: `ra2-components`
+## Comandes del projecte
 
 ```bash
+# Instal·lar dependències
 npm install
+
+# Executar el servidor de desenvolupament (http://localhost:4200)
 ng serve
+
+# Compilar el projecte per a producció
+ng build
+
+# Executar els tests unitaris
+npm test

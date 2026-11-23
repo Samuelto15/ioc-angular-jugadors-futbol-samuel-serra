@@ -1,17 +1,26 @@
 <form class="filtre-form" #filtreForm="ngForm" (ngSubmit)="aplicarFiltres()">
   <div class="camp">
     <label for="cerca">Cerca per nom o descripció</label>
-    <input 
-      id="cerca" 
-      type="text" 
-      [(ngModel)]="textCerca" 
-      name="cerca" 
+    <input
+      id="cerca"
+      type="text"
+      [(ngModel)]="textCerca"
+      name="cerca"
       #cercaInput="ngModel"
+      required
       minlength="4"
-      placeholder="Escriu per cercar..." 
+      maxlength="60"
+      placeholder="Escriu per cercar..."
     />
     @if (cercaInput.invalid && (cercaInput.dirty || cercaInput.touched)) {
-      <p class="error" role="alert">El text de cerca ha de tenir com a mínim 4 caràcters.</p>
+      <div class="error" role="alert">
+        @if (cercaInput.errors?.['required']) {
+          <p>Indiqueu el text de cerca.</p>
+        }
+        @if (cercaInput.errors?.['minlength']) {
+          <p>El text de cerca ha de tenir com a mínim 4 caràcters.</p>
+        }
+      </div>
     }
   </div>
 

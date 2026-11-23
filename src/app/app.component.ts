@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { TargetaJugadorComponent } from './components/targeta-jugador/targeta-jugador.component';
+import { DatePipe } from '@angular/common';
+import { LlistaJugadorsComponent } from './components/llista-jugadors/llista-jugadors.component';
 import { FiltreJugadorsComponent } from './components/filtre-jugadors/filtre-jugadors.component';
 import { JUGADORS_MOCK } from './models/jugadors.mock';
 import { Jugador } from './models/jugador.model';
@@ -8,7 +8,7 @@ import { Jugador } from './models/jugador.model';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, TargetaJugadorComponent, FiltreJugadorsComponent],
+  imports: [DatePipe, LlistaJugadorsComponent, FiltreJugadorsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -30,7 +30,7 @@ export class AppComponent {
       const coincideixText = !this.criterisFiltre.cerca ||
         jugador.nom.toLowerCase().includes(this.criterisFiltre.cerca.toLowerCase()) ||
         jugador.descripcio.toLowerCase().includes(this.criterisFiltre.cerca.toLowerCase());
-        
+
       const coincideixPosicio = !this.criterisFiltre.posicio ||
         jugador.posicio === this.criterisFiltre.posicio;
 

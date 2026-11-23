@@ -1,5 +1,14 @@
 <article class="targeta-jugador">
+  <div class="targeta-capcalera">
+    <app-categoria-badge [posicio]="jugador.posicio" />
+    <span class="dorsal">#{{ jugador.dorsal }}</span>
+  </div>
+
   <h3>{{ jugador.nom }}</h3>
-  <p class="posicio">{{ jugador.posicio | uppercase }}</p>
   <p class="descripcio">{{ jugador.descripcio }}</p>
+  <p class="data">Debut: {{ jugador.dataDebut | date:'dd/MM/yyyy' }}</p>
+
+  <button type="button" class="btn-detall" (click)="onSeleccionar()">
+    Veure detall
+  </button>
 </article>

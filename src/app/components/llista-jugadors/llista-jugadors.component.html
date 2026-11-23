@@ -1,1 +1,10 @@
-<p>llista-jugadors works!</p>
+<div class="llista-elements">
+  @for (jugador of jugadors; track jugador.id) {
+    <app-targeta-jugador
+      [jugador]="jugador"
+      (seleccionar)="seleccionar.emit($event)">
+    </app-targeta-jugador>
+  } @empty {
+    <p class="no-results" role="status">No s'han trobat jugadors amb aquests filtres.</p>
+  }
+</div>
