@@ -8,7 +8,7 @@ Aplicació web feta amb Angular per consultar, filtrar i buscar jugadors connect
 - **API local:** `http://localhost:4301/jugadors` (`npm run api`)
 
 ## Què s'ha treballat en aquesta fase
-- **Models i adaptador:** `JugadorApiResponse`, `NouJugadorPayload`, `Jugador` i `adaptarJugadorApi` / `adaptarJugadorsApi` / `prepararJugadorApi`.
+- **Models i adaptador:** `JugadorApiResponse`, `NouJugadorPayload`, `Jugador` i `adaptarJugadorsApi` / `prepararJugadorApi`.
 - **Serveis:** `JugadorService` (amb `HttpClient`, `signal`, `switchMap`, gestió d'errors, `reintentar()` i `POST`) i `HistorialCerquesService` (amb `localStorage`).
 - **Formulari reactiu:** `FiltreJugadorsComponent` amb `ReactiveFormsModule`, validació síncrona, validació asíncrona amb `debounce` (`timer(400)`) i historial de cerques.
 
