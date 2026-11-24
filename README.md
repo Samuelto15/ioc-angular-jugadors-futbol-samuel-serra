@@ -1,6 +1,6 @@
-# Catàleg de Jugadors de Futbol
+# Catàleg de Jugadors de futbol
 
-Aplicació web feta amb Angular per consultar, filtrar i cercar jugadors connectada a una API local amb `json-server`.
+Aplicació web feta amb Angular per consultar, filtrar i buscar jugadors connectada a una API local amb `json-server`.
 
 ## Entorn i branca
 - **Angular CLI:** 22.2.2
