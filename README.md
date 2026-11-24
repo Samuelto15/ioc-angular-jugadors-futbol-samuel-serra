@@ -1,37 +1,22 @@
-# Catàleg de Jugadors de Futbol - IOC
+# Catàleg de Jugadors de Futbol
 
-Aplicació web desenvolupada amb Angular per buscar, filtrar i consultar la informació de jugadors de futbol.
+Aplicació web feta amb Angular per consultar, filtrar i cercar jugadors connectada a una API local amb `json-server`.
 
-## Versions i entorn
+## Entorn i branca
 - **Angular CLI:** 22.2.2
-- **Node.js:** 22.x (LTS)
-- **TypeScript:** 5.8.x
-- **Branca de treball actual:** `ra2-components`
+- **Branca de treball:** `ra3-serveis`
+- **API local:** `http://localhost:4301/jugadors` (`npm run api`)
 
-## Components creats
-- **AppComponent:** Component arrel que coordina l'estat general, el filtratge i el panell de detall.
-- **LlistaJugadorsComponent:** Renderitza la col·lecció de jugadors mitjançant `@for` amb `track` i `@empty`.
-- **TargetaJugadorComponent:** Mostra la fitxa resumida de cada jugador amb `@Input`, `@Output` i el pipe `date`.
-- **CategoriaBadgeComponent:** Subcomponent que mostra la posició del jugador amb un distintiu de color.
-- **FiltreJugadorsComponent:** Formulari reactiu per plantilla (`FormsModule`) amb validacions `required` i `minlength`.
-
-## Accessibilitat i disseny responsive
-- Enllaç de salt al contingut principal (`skip-link`).
-- Contorn de focus visible (`:focus-visible`) per a navegació per teclat.
-- Etiquetes `<label for="...">` associades a tots els camps i atributs ARIA (`aria-live`, `role="alert"`, `role="status"`).
-- Maquetació adaptativa amb CSS Grid i `@media (max-width: 768px)`.
+## Què s'ha treballat en aquesta fase
+- **Models i adaptador:** `JugadorApiResponse`, `NouJugadorPayload`, `Jugador` i `adaptarJugadorApi` / `adaptarJugadorsApi` / `prepararJugadorApi`.
+- **Serveis:** `JugadorService` (amb `HttpClient`, `signal`, `switchMap`, gestió d'errors, `reintentar()` i `POST`) i `HistorialCerquesService` (amb `localStorage`).
+- **Formulari reactiu:** `FiltreJugadorsComponent` amb `ReactiveFormsModule`, validació síncrona, validació asíncrona amb `debounce` (`timer(400)`) i historial de cerques.
 
 ## Comandes del projecte
 
 ```bash
-# Instal·lar dependències
 npm install
-
-# Executar el servidor de desenvolupament (http://localhost:4200)
+npm run api
 ng serve
-
-# Compilar el projecte per a producció
-ng build
-
-# Executar els tests unitaris
 npm test
+npm run build

@@ -12,13 +12,32 @@
     <section class="resultats">
       <h2>
         Jugadors
-        <span class="comptador" aria-live="polite">{{ jugadorsFiltrats.length }} de {{ jugadors.length }}</span>
+        <span class="comptador" aria-live="polite">
+          {{ jugadorsFiltrats.length }} de {{ jugadorService.jugadors().length }}
+        </span>
       </h2>
 
-      <app-llista-jugadors
-        [jugadors]="jugadorsFiltrats"
-        (seleccionar)="seleccionarJugador($event)">
-      </app-llista-jugadors>
+      @switch (jugadorService.estat().fase) {
+        @case ('carregant') {
+          <div class="estat-carregant" role="status" aria-live="polite">
+            <p>Carregant jugadors des de l'API...</p>
+          </div>
+        }
+        @case ('error') {
+          <div class="estat-error" role="alert">
+            <p>{{ jugadorService.error() }}</p>
+            <button type="button" (click)="jugadorService.reintentar()">
+              Reintentar
+            </button>
+          </div>
+        }
+        @default {
+          <app-llista-jugadors
+            [jugadors]="jugadorsFiltrats"
+            (seleccionar)="seleccionarJugador($event)">
+          </app-llista-jugadors>
+        }
+      }
     </section>
 
     <aside class="detall" aria-live="polite">

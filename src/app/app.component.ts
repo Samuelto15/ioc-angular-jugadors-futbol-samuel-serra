@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { LlistaJugadorsComponent } from './components/llista-jugadors/llista-jugadors.component';
 import { FiltreJugadorsComponent } from './components/filtre-jugadors/filtre-jugadors.component';
-import { JUGADORS_MOCK } from './models/jugadors.mock';
 import { Jugador } from './models/jugador.model';
+import { JugadorService } from './services/jugador.service';
 
 @Component({
   selector: 'app-root',
@@ -13,12 +13,18 @@ import { Jugador } from './models/jugador.model';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  jugadors: Jugador[] = JUGADORS_MOCK;
+  readonly jugadorService = inject(JugadorService);
+
   criterisFiltre = { cerca: '', posicio: '' };
   jugadorSeleccionat?: Jugador;
 
+  constructor() {
+    this.jugadorService.carregarJugadors();
+  }
+
   onFiltreCanviat(filtre: { cerca: string; posicio: string }): void {
     this.criterisFiltre = filtre;
+    this.jugadorService.carregarJugadors(filtre.cerca);
   }
 
   seleccionarJugador(jugador: Jugador): void {
@@ -26,15 +32,12 @@ export class AppComponent {
   }
 
   get jugadorsFiltrats(): Jugador[] {
-    return this.jugadors.filter(jugador => {
-      const coincideixText = !this.criterisFiltre.cerca ||
-        jugador.nom.toLowerCase().includes(this.criterisFiltre.cerca.toLowerCase()) ||
-        jugador.descripcio.toLowerCase().includes(this.criterisFiltre.cerca.toLowerCase());
+    const llista = this.jugadorService.jugadors();
 
-      const coincideixPosicio = !this.criterisFiltre.posicio ||
-        jugador.posicio === this.criterisFiltre.posicio;
+    if (!this.criterisFiltre.posicio) {
+      return llista;
+    }
 
-      return coincideixText && coincideixPosicio;
-    });
+    return llista.filter((jugador) => jugador.posicio === this.criterisFiltre.posicio);
   }
 }

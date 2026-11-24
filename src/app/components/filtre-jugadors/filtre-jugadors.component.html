@@ -1,42 +1,77 @@
-<form class="filtre-form" #filtreForm="ngForm" (ngSubmit)="aplicarFiltres()">
-  <div class="camp">
-    <label for="cerca">Cerca per nom o descripció</label>
-    <input
-      id="cerca"
-      type="text"
-      [(ngModel)]="textCerca"
-      name="cerca"
-      #cercaInput="ngModel"
-      required
-      minlength="4"
-      maxlength="60"
-      placeholder="Escriu per cercar..."
-    />
-    @if (cercaInput.invalid && (cercaInput.dirty || cercaInput.touched)) {
-      <div class="error" role="alert">
-        @if (cercaInput.errors?.['required']) {
-          <p>Indiqueu el text de cerca.</p>
+<section class="filtre-cerca" aria-label="Filtre de jugadors">
+  <form class="filtre-form" [formGroup]="formulari" (ngSubmit)="aplicarFiltres()">
+    <div class="camp">
+      <label for="cerca">Cerca per nom, posició o descripció</label>
+      <input
+        id="cerca"
+        type="text"
+        formControlName="cerca"
+        placeholder="Escriu per cercar (mínim 3 lletres)..."
+      />
+
+      @if (cercaControl.pending) {
+        <p class="estat-validacio" role="status">Comprovant disponibilitat a l'API...</p>
+      }
+
+      @if (cercaControl.invalid && (cercaControl.dirty || cercaControl.touched)) {
+        <div class="missatges-error" role="alert">
+          @if (cercaControl.errors?.['minlength']) {
+            <p>El text de cerca ha de tenir com a mínim 3 caràcters.</p>
+          }
+          @if (cercaControl.errors?.['maxlength']) {
+            <p>El text de cerca no pot superar els 60 caràcters.</p>
+          }
+          @if (cercaControl.errors?.['senseResultats']) {
+            <p>No hi ha cap jugador que coincideixi amb aquest terme.</p>
+          }
+        </div>
+      }
+    </div>
+
+    <div class="camp">
+      <label for="posicio">Posició</label>
+      <select id="posicio" formControlName="posicio">
+        <option value="">Totes les posicions</option>
+        @for (pos of posicions; track pos) {
+          <option [value]="pos">{{ pos }}</option>
         }
-        @if (cercaInput.errors?.['minlength']) {
-          <p>El text de cerca ha de tenir com a mínim 4 caràcters.</p>
+      </select>
+    </div>
+
+    <div class="botons">
+      <button
+        type="submit"
+        class="btn-primari"
+        [disabled]="formulari.invalid || formulari.pending"
+      >
+        Aplicar filtres
+      </button>
+      <button type="button" class="btn-secundari" (click)="reiniciarFiltres()">
+        Reiniciar filtres
+      </button>
+    </div>
+  </form>
+
+  <div class="historial">
+    <div class="capcalera-historial">
+      <h2>Cerques recents</h2>
+      @if (historial.historial().length > 0) {
+        <button type="button" (click)="historial.netejar()">Neteja</button>
+      }
+    </div>
+
+    @if (historial.historial().length > 0) {
+      <ul>
+        @for (cerca of historial.historial(); track cerca.data) {
+          <li>
+            <button type="button" (click)="recuperarCerca(cerca)">
+              {{ cerca.terme || 'Sense text' }} · {{ cerca.posicio || 'Totes les posicions' }}
+            </button>
+          </li>
         }
-      </div>
+      </ul>
+    } @else {
+      <p>Encara no hi ha cerques desades.</p>
     }
   </div>
-
-  <div class="camp">
-    <label for="posicio">Posició</label>
-    <select id="posicio" [(ngModel)]="posicioSeleccionada" name="posicio">
-      <option value="">Totes les posicions</option>
-      <option value="Davanter">Davanter</option>
-      <option value="Migcampista">Migcampista</option>
-      <option value="Defensa">Defensa</option>
-      <option value="Porter">Porter</option>
-    </select>
-  </div>
-
-  <div class="botons">
-    <button type="submit" class="btn-primari" [disabled]="filtreForm.invalid">Aplicar filtres</button>
-    <button type="button" class="btn-secundari" (click)="reiniciarFiltres()">Reiniciar filtres</button>
-  </div>
-</form>
+</section>

@@ -1,0 +1,100 @@
+{
+  "jugadors": [
+    {
+      "id": "jug-001",
+      "nom": "Lamine Yamal",
+      "descripcio": "Extrem dret jove amb gran projecció, ràpid i molta habilitat per driblar.",
+      "posicio": "Davanter",
+      "dataDebut": "2023-04-29",
+      "dorsal": 19,
+      "esDestacat": true
+    },
+    {
+      "id": "jug-002",
+      "nom": "Pedri González",
+      "descripcio": "Migcampista organitzador, jove amb gran control del joc.",
+      "posicio": "Migcampista",
+      "dataDebut": "2020-09-27",
+      "dorsal": 8,
+      "esDestacat": true
+    },
+    {
+      "id": "jug-003",
+      "nom": "Pau Cubarsí",
+      "descripcio": "Defensa central jove amb molt bona sortida de pilota i control físic.",
+      "posicio": "Defensa",
+      "dataDebut": "2024-01-18",
+      "dorsal": 2,
+      "esDestacat": true
+    },
+    {
+      "id": "jug-004",
+      "nom": "Joan Garcia",
+      "descripcio": "Porter titular jove, amb molt bons reflexons i bona soritda de pilota amb els peus.",
+      "posicio": "Porter",
+      "dataDebut": "2014-09-17",
+      "dorsal": 1,
+      "esDestacat": false
+    },
+    {
+      "id": "jug-005",
+      "nom": "Dani Olmo",
+      "descripcio": "Mitjapunta egarenc amb gran visió de joc amb bona finalització i assistències.",
+      "posicio": "Migcampista",
+      "dataDebut": "2024-08-27",
+      "dorsal": 20,
+      "esDestacat": true
+    },
+    {
+      "id": "jug-006",
+      "nom": "Gavi",
+      "descripcio": "Migcampista intens, de gran desplegament físic i caràcter.",
+      "posicio": "Migcampista",
+      "dataDebut": "2021-08-29",
+      "dorsal": 6,
+      "esDestacat": false
+    },
+    {
+      "id": "jug-007",
+      "nom": "Jules Koundé",
+      "descripcio": "Defensa polivalent que pot actuar de central o de lateral dret.",
+      "posicio": "Defensa",
+      "dataDebut": "2022-08-28",
+      "dorsal": 23,
+      "esDestacat": false
+    },
+    {
+      "id": "jug-008",
+      "nom": "Frenkie de Jong",
+      "descripcio": "Migcampista de conducció amb gran visió de joc i creació d'oportunitats.",
+      "posicio": "Migcampista",
+      "dataDebut": "2019-08-16",
+      "dorsal": 21,
+      "esDestacat": false
+    },
+    {
+      "id": "jug-009",
+      "nom": "Raphinha",
+      "descripcio": "Extrem i/o devanter de gran treball defensiu, potència de xut i assistències.",
+      "posicio": "Davanter",
+      "dataDebut": "2022-08-13",
+      "dorsal": 11,
+      "esDestacat": true
+    },
+    {
+      "id": "jug-010",
+      "nom": "Marc Casadó",
+      "descripcio": "Migcampista defensiu amb gran capacitat de recuperació, visió de joc i molta pressió als jugadors rivals",
+      "posicio": "Migcampista",
+      "dataDebut": "2022-11-01",
+      "dorsal": 17,
+      "esDestacat": true
+    },
+    {
+      "nom": "Raul Gonzalez",
+      "posicio": "Davanter",
+      "id": "hzV2w6jJ1-U"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
